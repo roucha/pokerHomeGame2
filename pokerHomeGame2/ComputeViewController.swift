@@ -38,6 +38,61 @@ class ComputeViewController: UIViewController {
     @IBOutlet weak var end8: UITextField!
     
     
+    @IBAction func compute(_ sender: Any) {
+        
+        
+        
+        //create sorted arrays of values (dictionaries are unsorted)
+        
+        var nameArray = [String]()
+        var startArray = [Double]()
+        var endArray = [Double]()
+        
+        nameArray.append(name1.text!)
+        nameArray.append(name2.text!)
+        nameArray.append(name3.text!)
+        
+        startArray.append(Double(start1.text!)!)
+        startArray.append(Double(start2.text!)!)
+        startArray.append(Double(start3.text!)!)
+        
+        endArray.append(Double(end1.text!)!)
+        endArray.append(Double(end2.text!)!)
+        endArray.append(Double(end3.text!)!)
+        
+        print(nameArray)
+        print(startArray)
+        print(endArray)
+        
+        
+        
+        
+        
+        
+        
+        
+        //loop through and determine who owes who what
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    }
     
     
     override func viewDidLoad() {
