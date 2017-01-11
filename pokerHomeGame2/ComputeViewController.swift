@@ -88,9 +88,41 @@ class ComputeViewController: UIViewController {
         
         //loop through and determine who owes who what
         
+        // y is equal to the last value's position in the sorted array (largest chip size)
+        
+        var y = differenceSorted.count - 1
         
         for i in 0...nameSorted.count-1 {
             
+            while differenceSorted[i] < 0 {
+                
+                if abs(differenceSorted[i]) > differenceSorted[y] {
+                    
+                    print(nameSorted[i])
+                    print("to send")
+                    print(abs(differenceSorted[y]))
+                    print("to")
+                    print(nameSorted[y])
+                    
+                    differenceSorted[i] += differenceSorted[y]
+                    //differenceSorted[y] -= differenceSorted[y]
+                    
+                } else if abs(differenceSorted[i]) <= differenceSorted[y] {
+                    
+                    print(nameSorted[i])
+                    print("to send")
+                    print(abs(differenceSorted[i]))
+                    print("to")
+                    print(nameSorted[y])
+                    
+                    differenceSorted[i] += differenceSorted[y]
+                    //differenceSorted[y] -= differenceSorted[y]
+                    
+                }
+                
+            }
+            
+            y-=1
             
         }
         
