@@ -15,6 +15,7 @@
 		E5205F851E268E81001A3E6C /* pokerHomeGame2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5205F841E268E81001A3E6C /* pokerHomeGame2Tests.swift */; };
 		E5205F901E268E81001A3E6C /* pokerHomeGame2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5205F8F1E268E81001A3E6C /* pokerHomeGame2UITests.swift */; };
 		E5205F9E1E2690F1001A3E6C /* pokerTable.png in Resources */ = {isa = PBXBuildFile; fileRef = E5205F9D1E2690F1001A3E6C /* pokerTable.png */; };
+		E5205FA21E26930E001A3E6C /* ComputeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5205FA11E26930E001A3E6C /* ComputeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		E5205F8F1E268E81001A3E6C /* pokerHomeGame2UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pokerHomeGame2UITests.swift; sourceTree = "<group>"; };
 		E5205F911E268E81001A3E6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E5205F9D1E2690F1001A3E6C /* pokerTable.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pokerTable.png; sourceTree = "<group>"; };
+		E5205FA11E26930E001A3E6C /* ComputeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComputeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				E5205F6F1E268E80001A3E6C /* AppDelegate.swift */,
+				E5205FA11E26930E001A3E6C /* ComputeViewController.swift */,
 				E5205F711E268E80001A3E6C /* ViewController.swift */,
 				E5205F731E268E80001A3E6C /* Main.storyboard */,
 				E5205F9D1E2690F1001A3E6C /* pokerTable.png */,
@@ -267,6 +270,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E5205F721E268E80001A3E6C /* ViewController.swift in Sources */,
+				E5205FA21E26930E001A3E6C /* ComputeViewController.swift in Sources */,
 				E5205F701E268E80001A3E6C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

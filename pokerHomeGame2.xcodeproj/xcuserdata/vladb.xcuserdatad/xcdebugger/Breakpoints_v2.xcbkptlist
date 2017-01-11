@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "pokerHomeGame2/ComputeViewController.swift"
+            timestampString = "505844792.785095"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "19"
+            endingLineNumber = "19"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "pokerHomeGame2/ComputeViewController.swift"
+            timestampString = "505844808.107199"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "9"
+            endingLineNumber = "9">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "pokerHomeGame2.ComputeViewController.__deallocating_deinit"
+                  moduleName = "pokerHomeGame2"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vladb/Documents/Coding/pokerHomeGame2/pokerHomeGame2/ComputeViewController.swift"
+                  timestampString = "505844815.815281"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "pokerHomeGame2.ComputeViewController.__allocating_init (nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; pokerHomeGame2.ComputeViewController"
+                  moduleName = "pokerHomeGame2"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vladb/Documents/Coding/pokerHomeGame2/pokerHomeGame2/ComputeViewController.swift"
+                  timestampString = "505844815.819091"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "23">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "pokerHomeGame2.ComputeViewController.__allocating_init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;pokerHomeGame2.ComputeViewController&gt;"
+                  moduleName = "pokerHomeGame2"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vladb/Documents/Coding/pokerHomeGame2/pokerHomeGame2/ComputeViewController.swift"
+                  timestampString = "505844815.820968"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "pokerHomeGame2.ComputeViewController.init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;pokerHomeGame2.ComputeViewController&gt;"
+                  moduleName = "pokerHomeGame2"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vladb/Documents/Coding/pokerHomeGame2/pokerHomeGame2/ComputeViewController.swift"
+                  timestampString = "505844815.823043"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "105">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
