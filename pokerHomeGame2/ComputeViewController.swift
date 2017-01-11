@@ -40,6 +40,8 @@ class ComputeViewController: UIViewController {
     
     @IBAction func compute(_ sender: Any) {
         
+        //Iff total starting chip count == total ending chip count
+        
         
         
         //create sorted arrays of values (dictionaries are unsorted)
@@ -47,6 +49,7 @@ class ComputeViewController: UIViewController {
         var nameArray = [String]()
         var startArray = [Double]()
         var endArray = [Double]()
+        var difference = [String: Double]()
         
         nameArray.append(name1.text!)
         nameArray.append(name2.text!)
@@ -60,12 +63,24 @@ class ComputeViewController: UIViewController {
         endArray.append(Double(end2.text!)!)
         endArray.append(Double(end3.text!)!)
         
-        print(nameArray)
-        print(startArray)
-        print(endArray)
+        difference[nameArray[0]] = endArray[0] - startArray[0]
+        difference[nameArray[1]] = endArray[1] - startArray[1]
+        difference[nameArray[2]] = endArray[2] - startArray[2]
         
+
+//        print(difference)
+//        print("****")
         
+        var nameSorted = [String]()
+        var differenceSorted = [Double]()
         
+        for (k,v) in Array(difference).sorted(by: {$0.1 < $1.1}) {
+            nameSorted.append(k)
+            differenceSorted.append(v)
+        }
+        
+        print(nameSorted)
+        print(differenceSorted)
         
         
         
@@ -74,7 +89,10 @@ class ComputeViewController: UIViewController {
         //loop through and determine who owes who what
         
         
-        
+        for i in 0...nameSorted.count-1 {
+            
+            
+        }
         
         
         
