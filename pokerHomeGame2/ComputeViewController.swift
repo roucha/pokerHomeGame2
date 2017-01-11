@@ -38,13 +38,14 @@ class ComputeViewController: UIViewController {
     @IBOutlet weak var end8: UITextField!
     
     
+    @IBOutlet weak var resultsLabel: UILabel!
+    
+    
+    
+    
+    
     @IBAction func compute(_ sender: Any) {
-        // TODO:
-        // Iff total starting chip count == total ending chip count
-        // TODO:
-        
-        
-        // create sorted arrays of values (dictionaries are unsorted)
+        // sort names and chip value differences from lowest to highest
         
         var nameArray = [String]()
         var startArray = [Double]()
@@ -86,8 +87,6 @@ class ComputeViewController: UIViewController {
         difference[nameArray[5]] = endArray[5] - startArray[5]
         difference[nameArray[6]] = endArray[6] - startArray[6]
         difference[nameArray[7]] = endArray[7] - startArray[7]
-        difference[nameArray[8]] = endArray[8] - startArray[8]
-        
         
         var nameSorted = [String]()
         var differenceSorted = [Double]()
@@ -96,52 +95,60 @@ class ComputeViewController: UIViewController {
             nameSorted.append(k)
             differenceSorted.append(v)
         }
+                
+        // proceed to loop through and determine who owes who what, only if the starting and ending chip counts match
         
-        print(nameSorted)
-        print(differenceSorted)
-        print("***")
+        var results = ""
         
+        let sumStart = startArray.reduce(0, +)
+        let sumEnd = endArray.reduce(0, +)
         
-        // loop through and determine who owes who what
-        
-        var y = differenceSorted.count - 1
-        
-        for i in 0...nameSorted.count-1 {
+        if sumStart != sumEnd {
+            // popup
+            let alert = UIAlertController(title: "Error", message: "Starting and ending chip counts don't match", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+
+        } else {
+            var y = differenceSorted.count - 1
             
-            while differenceSorted[i] < 0 {
+            for i in 0...nameSorted.count-1 {
                 
-                if abs(differenceSorted[i]) > differenceSorted[y] {
+                while differenceSorted[i] < 0 {
                     
-                    print(nameSorted[i])
-                    print("to send")
-                    print(abs(differenceSorted[y]))
-                    print("to")
-                    print(nameSorted[y])
+                    if abs(differenceSorted[i]) > differenceSorted[y] {
+                        let name = nameSorted[i]
+                        let amount = String(abs(differenceSorted[y]))
+                        let name2 = nameSorted[y]
+                        let r = name + " to send " + amount + " to " + name2
+                        
+                        results = results + "\n" + r
+                        
+                        differenceSorted[i] += differenceSorted[y]
+                        differenceSorted[y] -= differenceSorted[y]
+                    } else if abs(differenceSorted[i]) <= differenceSorted[y] {
+                        let name = nameSorted[i]
+                        let amount = String(abs(differenceSorted[i]))
+                        let name2 = nameSorted[y]
+                        let r = name + " to send " + amount + " to " + name2
+                        
+                        results = results + "\n" + r
+                        
+                        differenceSorted[y] -= abs(differenceSorted[i])
+                        differenceSorted[i] += abs(differenceSorted[i])
+                    }
                     
-                    differenceSorted[i] += differenceSorted[y]
-                    differenceSorted[y] -= differenceSorted[y]
-                    
-                } else if abs(differenceSorted[i]) <= differenceSorted[y] {
-                    
-                    print(nameSorted[i])
-                    print("to send")
-                    print(abs(differenceSorted[i]))
-                    print("to")
-                    print(nameSorted[y])
-                    
-                    differenceSorted[y] -= abs(differenceSorted[i])
-                    differenceSorted[i] += abs(differenceSorted[i])
+                    if differenceSorted[y] == 0 {
+                        y-=1
+                    }
                     
                 }
                 
-                if differenceSorted[y] == 0 {
-                    y-=1
-                }
-                
-                print("\n")
             }
             
         }
+        print(results)
+        resultsLabel.text = String(results)
         
     }
     
