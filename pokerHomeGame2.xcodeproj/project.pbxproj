@@ -14,6 +14,7 @@
 		E5205F7A1E268E81001A3E6C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5205F781E268E81001A3E6C /* LaunchScreen.storyboard */; };
 		E5205F851E268E81001A3E6C /* pokerHomeGame2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5205F841E268E81001A3E6C /* pokerHomeGame2Tests.swift */; };
 		E5205F901E268E81001A3E6C /* pokerHomeGame2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5205F8F1E268E81001A3E6C /* pokerHomeGame2UITests.swift */; };
+		E5205F9E1E2690F1001A3E6C /* pokerTable.png in Resources */ = {isa = PBXBuildFile; fileRef = E5205F9D1E2690F1001A3E6C /* pokerTable.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		E5205F8B1E268E81001A3E6C /* pokerHomeGame2UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = pokerHomeGame2UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5205F8F1E268E81001A3E6C /* pokerHomeGame2UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pokerHomeGame2UITests.swift; sourceTree = "<group>"; };
 		E5205F911E268E81001A3E6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E5205F9D1E2690F1001A3E6C /* pokerTable.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pokerTable.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 				E5205F6F1E268E80001A3E6C /* AppDelegate.swift */,
 				E5205F711E268E80001A3E6C /* ViewController.swift */,
 				E5205F731E268E80001A3E6C /* Main.storyboard */,
+				E5205F9D1E2690F1001A3E6C /* pokerTable.png */,
 				E5205F761E268E80001A3E6C /* Assets.xcassets */,
 				E5205F781E268E81001A3E6C /* LaunchScreen.storyboard */,
 				E5205F7B1E268E81001A3E6C /* Info.plist */,
@@ -237,6 +240,7 @@
 			files = (
 				E5205F7A1E268E81001A3E6C /* LaunchScreen.storyboard in Resources */,
 				E5205F771E268E80001A3E6C /* Assets.xcassets in Resources */,
+				E5205F9E1E2690F1001A3E6C /* pokerTable.png in Resources */,
 				E5205F751E268E80001A3E6C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
