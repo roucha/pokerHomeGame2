@@ -11,7 +11,6 @@ import UIKit
 
 class ComputeViewController: UIViewController {
     
-    
     @IBOutlet weak var name1: UITextField!
     @IBOutlet weak var start1: UITextField!
     @IBOutlet weak var end1: UITextField!
@@ -37,14 +36,10 @@ class ComputeViewController: UIViewController {
     @IBOutlet weak var start8: UITextField!
     @IBOutlet weak var end8: UITextField!
     
-    
     @IBOutlet weak var resultsLabel: UILabel!
     
-    
-    
-    
-    
     @IBAction func compute(_ sender: Any) {
+        
         // sort names and chip value differences from lowest to highest
         
         var nameArray = [String]()
@@ -95,7 +90,7 @@ class ComputeViewController: UIViewController {
             nameSorted.append(k)
             differenceSorted.append(v)
         }
-                
+        
         // proceed to loop through and determine who owes who what, only if the starting and ending chip counts match
         
         var results = ""
@@ -156,6 +151,7 @@ class ComputeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        self.hideKeyboard()
     }
     
     override func didReceiveMemoryWarning() {
@@ -166,3 +162,22 @@ class ComputeViewController: UIViewController {
     
 }
 
+
+
+
+extension UIViewController
+{
+    func hideKeyboard()
+    {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(
+            target: self,
+            action: #selector(UIViewController.dismissKeyboard))
+        
+        view.addGestureRecognizer(tap)
+    }
+    
+    func dismissKeyboard()
+    {
+        view.endEditing(true)
+    }
+}

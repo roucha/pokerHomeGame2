@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -21,13 +22,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pokerTable.png" translatesAutoresizingMaskIntoConstraints="NO" id="cGO-gQ-STe">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="pokerTable.png" translatesAutoresizingMaskIntoConstraints="NO" id="cGO-gQ-STe">
                                 <rect key="frame" x="130" y="78.333333333333343" width="475" height="255.66666666666666"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bb8-A8-dKf">
-                                <rect key="frame" x="294" y="156.33333333333337" width="147" height="100.66666666666663"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <pickerView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ghs-6K-eOy">
+                                <rect key="frame" x="195" y="160" width="346" height="93"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="PYv-bU-sJQ"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="t2v-60-OYN"/>
+                                </connections>
+                            </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Select number of players and click Start Game" textAlignment="natural" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mlz-HL-Wxn">
+                                <rect key="frame" x="190" y="33" width="355" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bb8-A8-dKf">
+                                <rect key="frame" x="294" y="342" width="147" height="64"/>
                                 <state key="normal" title="Start Game">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
@@ -35,20 +47,28 @@
                                     <segue destination="FAg-dg-BE3" kind="show" id="ib5-qM-0d6"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Welcome! Click Start Game to proceed." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mlz-HL-Wxn">
-                                <rect key="frame" x="214" y="28" width="307" height="20"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Mlz-HL-Wxn" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="15" id="6ZH-8w-vO5"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="cGO-gQ-STe" secondAttribute="trailing" constant="111" id="IbH-bu-j9n"/>
+                            <constraint firstItem="Ghs-6K-eOy" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="OfN-KQ-VgQ"/>
+                            <constraint firstItem="cGO-gQ-STe" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="110" id="WWF-8g-40G"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Bb8-A8-dKf" secondAttribute="bottom" constant="8" id="gKM-rX-fdJ"/>
+                            <constraint firstItem="cGO-gQ-STe" firstAttribute="top" secondItem="Mlz-HL-Wxn" secondAttribute="bottom" constant="24.329999999999998" id="hd0-6l-8D6"/>
+                            <constraint firstItem="Mlz-HL-Wxn" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="kXx-LT-KGQ"/>
+                            <constraint firstItem="Bb8-A8-dKf" firstAttribute="top" secondItem="cGO-gQ-STe" secondAttribute="bottom" constant="8" id="lJg-vh-HV1"/>
+                            <constraint firstItem="Ghs-6K-eOy" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="uJr-3C-erF"/>
+                            <constraint firstItem="Bb8-A8-dKf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="yKR-c4-N9a"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="pickerView" destination="Ghs-6K-eOy" id="teC-Hh-LXf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="33.423913043478265" y="24.637681159420293"/>
+            <point key="canvasLocation" x="32.608695652173914" y="21.739130434782609"/>
         </scene>
         <!--Compute View Controller-->
         <scene sceneID="9gI-Vm-Q7s">
@@ -251,7 +271,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y1q-5G-n8Z">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y1q-5G-n8Z">
                                 <rect key="frame" x="401" y="48" width="322" height="296"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="17"/>
@@ -259,9 +279,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aDk-66-NjV">
-                                <rect key="frame" x="539" y="13" width="68" height="30"/>
+                                <rect key="frame" x="542" y="13" width="63" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Compute!"/>
+                                <state key="normal" title="Compute"/>
                                 <connections>
                                     <action selector="compute:" destination="FAg-dg-BE3" eventType="touchUpInside" id="4Ue-LO-bzl"/>
                                 </connections>
