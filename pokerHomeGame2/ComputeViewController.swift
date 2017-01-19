@@ -11,6 +11,11 @@ import UIKit
 
 class ComputeViewController: UIViewController {
     
+    var numPlayers:String = ""
+    
+    
+    
+    
     @IBOutlet weak var name1: UITextField!
     @IBOutlet weak var start1: UITextField!
     @IBOutlet weak var end1: UITextField!
@@ -152,6 +157,83 @@ class ComputeViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.hideKeyboard()
+        
+        print(numPlayers)
+        
+        
+        if Int(numPlayers) == 2 {
+            name3.isHidden = true
+            start3.isHidden = true
+            end3.isHidden = true
+            name4.isHidden = true
+            start4.isHidden = true
+            end4.isHidden = true
+            name5.isHidden = true
+            start5.isHidden = true
+            end5.isHidden = true
+            name6.isHidden = true
+            start6.isHidden = true
+            end6.isHidden = true
+            name7.isHidden = true
+            start7.isHidden = true
+            end7.isHidden = true
+            name8.isHidden = true
+            start8.isHidden = true
+            end8.isHidden = true
+        } else if numPlayers == "3" {
+            name4.isHidden = true
+            start4.isHidden = true
+            end4.isHidden = true
+            name5.isHidden = true
+            start5.isHidden = true
+            end5.isHidden = true
+            name6.isHidden = true
+            start6.isHidden = true
+            end6.isHidden = true
+            name7.isHidden = true
+            start7.isHidden = true
+            end7.isHidden = true
+            name8.isHidden = true
+            start8.isHidden = true
+            end8.isHidden = true
+        } else if numPlayers == "4" {
+            name5.isHidden = true
+            start5.isHidden = true
+            end5.isHidden = true
+            name6.isHidden = true
+            start6.isHidden = true
+            end6.isHidden = true
+            name7.isHidden = true
+            start7.isHidden = true
+            end7.isHidden = true
+            name8.isHidden = true
+            start8.isHidden = true
+            end8.isHidden = true
+        } else if numPlayers == "5" {
+            name6.isHidden = true
+            start6.isHidden = true
+            end6.isHidden = true
+            name7.isHidden = true
+            start7.isHidden = true
+            end7.isHidden = true
+            name8.isHidden = true
+            start8.isHidden = true
+            end8.isHidden = true
+        } else if numPlayers == "6" {
+            name7.isHidden = true
+            start7.isHidden = true
+            end7.isHidden = true
+            name8.isHidden = true
+            start8.isHidden = true
+            end8.isHidden = true
+        } else if numPlayers == "7" {
+            name8.isHidden = true
+            start8.isHidden = true
+            end8.isHidden = true
+        } else {
+            
+        }
+ 
     }
     
     override func didReceiveMemoryWarning() {

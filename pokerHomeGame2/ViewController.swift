@@ -10,6 +10,17 @@ import UIKit
 
 class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
+    var pickerViewSelected = ""
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier! == "segue1" {
+            let v = segue.destination as! ComputeViewController
+            
+            v.numPlayers = pickerViewSelected
+        } else {
+            
+        }
+    }
     
     @IBOutlet weak var pickerView: UIPickerView!
 
@@ -35,15 +46,18 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        
+        pickerViewSelected = data[row]
+        //print("***")
         return data[row]
+        
         
     }
 
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        
-        
+        pickerViewSelected = data[row]
+        //print("***")
+        //print("!!!")
     }
     
     
