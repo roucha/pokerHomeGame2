@@ -158,6 +158,25 @@ class ComputeViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         self.hideKeyboard()
         
+        //.keyboardType = UIKeyboardType.DecimalPad
+        start1.keyboardType = UIKeyboardType.decimalPad
+        start2.keyboardType = UIKeyboardType.decimalPad
+        start3.keyboardType = UIKeyboardType.decimalPad
+        start4.keyboardType = UIKeyboardType.decimalPad
+        start5.keyboardType = UIKeyboardType.decimalPad
+        start6.keyboardType = UIKeyboardType.decimalPad
+        start7.keyboardType = UIKeyboardType.decimalPad
+        start8.keyboardType = UIKeyboardType.decimalPad
+        end1.keyboardType = UIKeyboardType.decimalPad
+        end2.keyboardType = UIKeyboardType.decimalPad
+        end3.keyboardType = UIKeyboardType.decimalPad
+        end4.keyboardType = UIKeyboardType.decimalPad
+        end5.keyboardType = UIKeyboardType.decimalPad
+        end6.keyboardType = UIKeyboardType.decimalPad
+        end7.keyboardType = UIKeyboardType.decimalPad
+        end8.keyboardType = UIKeyboardType.decimalPad
+        
+        
         print(numPlayers)
         
         

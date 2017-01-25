@@ -6,6 +6,22 @@
 //  Copyright © 2017 Vlad Barash. All rights reserved.
 //
 
+
+/*
+ To Do:
+ 
+ - tableview instead of label
+ - make computeViewController fit on an iPhone 7
+ - 
+ 
+ 
+ 
+ 
+*/
+
+
+
+
 import UIKit
 
 class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
