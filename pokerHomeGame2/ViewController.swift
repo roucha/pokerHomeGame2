@@ -12,6 +12,8 @@
  
  - tableview instead of label
  - make computeViewController fit on an iPhone 7
+ - save data entered into fields even when app goes to background
+ - save previous 'scores' of who won, sort of leaderboard feature?
  - 
  
  
