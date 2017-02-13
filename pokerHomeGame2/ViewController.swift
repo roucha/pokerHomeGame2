@@ -16,24 +16,39 @@
  - save previous 'scores' of who won, sort of leaderboard feature?
  - 
  
- 
- 
- 
 */
 
 
 
 
+
 import UIKit
+import Google
 
 class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
     var pickerViewSelected = ""
+
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated) // No need for semicolon
+        
+        print("hello")
+        
+        let name = "First Scren"
+        
+        guard let tracker = GAI.sharedInstance().defaultTracker else { return }
+        tracker.set(kGAIScreenName, value: name)
+        
+        guard let builder = GAIDictionaryBuilder.createScreenView() else { return }
+        tracker.send(builder.build() as [NSObject : AnyObject])
+        
+    }
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier! == "segue1" {
-            let v = segue.destination as! ComputeViewController
-            
+            let v = segue.destination as! StartingChipCountViewController
             v.numPlayers = pickerViewSelected
         } else {
             
@@ -47,6 +62,10 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        
+        
+        
         
         pickerView.delegate = self
         pickerView.dataSource = self
