@@ -9,7 +9,9 @@
 import Foundation
 import UIKit
 
-class ComputeViewController: UIViewController {
+class ComputeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+
+
     
     var numPlayers:String = ""
     var nameArray:Array = [String]()
@@ -20,12 +22,34 @@ class ComputeViewController: UIViewController {
     @IBOutlet weak var resultsLabel: UILabel!
     
     
+    @IBOutlet var tableView1: UITableView!
+    
 
 
+
+    var myArray = [String]()
+
+
+
+    
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        self.tableView1.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+
+
+        tableView1.delegate = self
+        tableView1.dataSource = self
+        
+        //tableView1.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        
+        
+        
+        
         self.hideKeyboard()
         
         print(numPlayers)
@@ -70,6 +94,8 @@ class ComputeViewController: UIViewController {
                     
                     results = results + "\n" + r
                     
+                    myArray.append(r)
+                    
                     differenceSorted[i] += differenceSorted[y]
                     differenceSorted[y] -= differenceSorted[y]
                 } else if abs(differenceSorted[i]) <= differenceSorted[y] {
@@ -79,6 +105,8 @@ class ComputeViewController: UIViewController {
                     let r = name + " to send " + amount + " to " + name2
                     
                     results = results + "\n" + r
+                    myArray.append(r)
+                    
                     
                     differenceSorted[y] -= abs(differenceSorted[i])
                     differenceSorted[i] += abs(differenceSorted[i])
@@ -97,12 +125,42 @@ class ComputeViewController: UIViewController {
         resultsLabel.text = results
         
         
+        theResults = results
         
-        
+        //myArray = ["testing", "onetwo"]
+
+        tableView1.reloadData()
         
         
         
     }
+    
+    
+    var theResults = "..."
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return myArray.count
+    }
+    
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cellIdentifier = "cell"
+        let cell = self.tableView1.dequeueReusableCell(withIdentifier: cellIdentifier, for : indexPath) as UITableViewCell
+        
+        //Configure the cell...
+        //cell.textLabel?.text = departmentNames[indexPath.row]
+        //cell.textLabel?.text = theResults
+        
+        cell.textLabel?.numberOfLines = 0
+        cell.textLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping
+        cell.textLabel?.text = myArray[indexPath.row]
+        return cell
+    }
+    
+    
+    
+    
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
