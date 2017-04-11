@@ -9,75 +9,55 @@
 import Foundation
 import UIKit
 
-class ComputeViewController: UIViewController {
+class ComputeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+
+
     
     var numPlayers:String = ""
+    var nameArray:Array = [String]()
+    var startArray:Array = [Double]()
+    var endArray:Array = [Double]()
     
-    
-    
-    
-    @IBOutlet weak var name1: UITextField!
-    @IBOutlet weak var start1: UITextField!
-    @IBOutlet weak var end1: UITextField!
-    @IBOutlet weak var name2: UITextField!
-    @IBOutlet weak var start2: UITextField!
-    @IBOutlet weak var end2: UITextField!
-    @IBOutlet weak var name3: UITextField!
-    @IBOutlet weak var start3: UITextField!
-    @IBOutlet weak var end3: UITextField!
-    @IBOutlet weak var name4: UITextField!
-    @IBOutlet weak var start4: UITextField!
-    @IBOutlet weak var end4: UITextField!
-    @IBOutlet weak var name5: UITextField!
-    @IBOutlet weak var start5: UITextField!
-    @IBOutlet weak var end5: UITextField!
-    @IBOutlet weak var name6: UITextField!
-    @IBOutlet weak var start6: UITextField!
-    @IBOutlet weak var end6: UITextField!
-    @IBOutlet weak var name7: UITextField!
-    @IBOutlet weak var start7: UITextField!
-    @IBOutlet weak var end7: UITextField!
-    @IBOutlet weak var name8: UITextField!
-    @IBOutlet weak var start8: UITextField!
-    @IBOutlet weak var end8: UITextField!
     
     @IBOutlet weak var resultsLabel: UILabel!
     
-    @IBAction func compute(_ sender: Any) {
+    
+    @IBOutlet var tableView1: UITableView!
+    
+
+
+
+    var myArray = [String]()
+
+
+
+    
+    
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
         
-        // sort names and chip value differences from lowest to highest
+        self.tableView1.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+
+
+        tableView1.delegate = self
+        tableView1.dataSource = self
         
-        var nameArray = [String]()
-        var startArray = [Double]()
-        var endArray = [Double]()
+        //tableView1.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        
+        
+        
+        
+        self.hideKeyboard()
+        
+        print(numPlayers)
+        print(nameArray)
+        print(startArray)
+        print(endArray)
+        
         var difference = [String: Double]()
-        
-        nameArray.append(name1.text!)
-        nameArray.append(name2.text!)
-        nameArray.append(name3.text!)
-        nameArray.append(name4.text!)
-        nameArray.append(name5.text!)
-        nameArray.append(name6.text!)
-        nameArray.append(name7.text!)
-        nameArray.append(name8.text!)
-        
-        startArray.append(Double(start1.text!)!)
-        startArray.append(Double(start2.text!)!)
-        startArray.append(Double(start3.text!)!)
-        startArray.append(Double(start4.text!)!)
-        startArray.append(Double(start5.text!)!)
-        startArray.append(Double(start6.text!)!)
-        startArray.append(Double(start7.text!)!)
-        startArray.append(Double(start8.text!)!)
-        
-        endArray.append(Double(end1.text!)!)
-        endArray.append(Double(end2.text!)!)
-        endArray.append(Double(end3.text!)!)
-        endArray.append(Double(end4.text!)!)
-        endArray.append(Double(end5.text!)!)
-        endArray.append(Double(end6.text!)!)
-        endArray.append(Double(end7.text!)!)
-        endArray.append(Double(end8.text!)!)
         
         difference[nameArray[0]] = endArray[0] - startArray[0]
         difference[nameArray[1]] = endArray[1] - startArray[1]
@@ -100,160 +80,87 @@ class ComputeViewController: UIViewController {
         
         var results = ""
         
-        let sumStart = startArray.reduce(0, +)
-        let sumEnd = endArray.reduce(0, +)
+        var y = differenceSorted.count - 1
         
-        if sumStart != sumEnd {
-            // popup
-            let alert = UIAlertController(title: "Error", message: "Starting and ending chip counts don't match", preferredStyle: UIAlertControllerStyle.alert)
-            alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
-
-        } else {
-            var y = differenceSorted.count - 1
+        for i in 0...nameSorted.count-1 {
             
-            for i in 0...nameSorted.count-1 {
+            while differenceSorted[i] < 0 {
                 
-                while differenceSorted[i] < 0 {
+                if abs(differenceSorted[i]) > differenceSorted[y] {
+                    let name = nameSorted[i]
+                    let amount = String(abs(differenceSorted[y]))
+                    let name2 = nameSorted[y]
+                    let r = name + " to send " + amount + " to " + name2
                     
-                    if abs(differenceSorted[i]) > differenceSorted[y] {
-                        let name = nameSorted[i]
-                        let amount = String(abs(differenceSorted[y]))
-                        let name2 = nameSorted[y]
-                        let r = name + " to send " + amount + " to " + name2
-                        
-                        results = results + "\n" + r
-                        
-                        differenceSorted[i] += differenceSorted[y]
-                        differenceSorted[y] -= differenceSorted[y]
-                    } else if abs(differenceSorted[i]) <= differenceSorted[y] {
-                        let name = nameSorted[i]
-                        let amount = String(abs(differenceSorted[i]))
-                        let name2 = nameSorted[y]
-                        let r = name + " to send " + amount + " to " + name2
-                        
-                        results = results + "\n" + r
-                        
-                        differenceSorted[y] -= abs(differenceSorted[i])
-                        differenceSorted[i] += abs(differenceSorted[i])
-                    }
+                    results = results + "\n" + r
                     
-                    if differenceSorted[y] == 0 {
-                        y-=1
-                    }
+                    myArray.append(r)
                     
+                    differenceSorted[i] += differenceSorted[y]
+                    differenceSorted[y] -= differenceSorted[y]
+                } else if abs(differenceSorted[i]) <= differenceSorted[y] {
+                    let name = nameSorted[i]
+                    let amount = String(abs(differenceSorted[i]))
+                    let name2 = nameSorted[y]
+                    let r = name + " to send " + amount + " to " + name2
+                    
+                    results = results + "\n" + r
+                    myArray.append(r)
+                    
+                    
+                    differenceSorted[y] -= abs(differenceSorted[i])
+                    differenceSorted[i] += abs(differenceSorted[i])
+                }
+                
+                if differenceSorted[y] == 0 {
+                    y-=1
                 }
                 
             }
             
         }
+        
+        
         print(results)
-        resultsLabel.text = String(results)
+        resultsLabel.text = results
+        
+        
+        theResults = results
+        
+        //myArray = ["testing", "onetwo"]
+
+        tableView1.reloadData()
+        
+        
         
     }
     
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        self.hideKeyboard()
-        
-        //.keyboardType = UIKeyboardType.DecimalPad
-        start1.keyboardType = UIKeyboardType.decimalPad
-        start2.keyboardType = UIKeyboardType.decimalPad
-        start3.keyboardType = UIKeyboardType.decimalPad
-        start4.keyboardType = UIKeyboardType.decimalPad
-        start5.keyboardType = UIKeyboardType.decimalPad
-        start6.keyboardType = UIKeyboardType.decimalPad
-        start7.keyboardType = UIKeyboardType.decimalPad
-        start8.keyboardType = UIKeyboardType.decimalPad
-        end1.keyboardType = UIKeyboardType.decimalPad
-        end2.keyboardType = UIKeyboardType.decimalPad
-        end3.keyboardType = UIKeyboardType.decimalPad
-        end4.keyboardType = UIKeyboardType.decimalPad
-        end5.keyboardType = UIKeyboardType.decimalPad
-        end6.keyboardType = UIKeyboardType.decimalPad
-        end7.keyboardType = UIKeyboardType.decimalPad
-        end8.keyboardType = UIKeyboardType.decimalPad
-        
-        
-        print(numPlayers)
-        
-        
-        if Int(numPlayers) == 2 {
-            name3.isHidden = true
-            start3.isHidden = true
-            end3.isHidden = true
-            name4.isHidden = true
-            start4.isHidden = true
-            end4.isHidden = true
-            name5.isHidden = true
-            start5.isHidden = true
-            end5.isHidden = true
-            name6.isHidden = true
-            start6.isHidden = true
-            end6.isHidden = true
-            name7.isHidden = true
-            start7.isHidden = true
-            end7.isHidden = true
-            name8.isHidden = true
-            start8.isHidden = true
-            end8.isHidden = true
-        } else if numPlayers == "3" {
-            name4.isHidden = true
-            start4.isHidden = true
-            end4.isHidden = true
-            name5.isHidden = true
-            start5.isHidden = true
-            end5.isHidden = true
-            name6.isHidden = true
-            start6.isHidden = true
-            end6.isHidden = true
-            name7.isHidden = true
-            start7.isHidden = true
-            end7.isHidden = true
-            name8.isHidden = true
-            start8.isHidden = true
-            end8.isHidden = true
-        } else if numPlayers == "4" {
-            name5.isHidden = true
-            start5.isHidden = true
-            end5.isHidden = true
-            name6.isHidden = true
-            start6.isHidden = true
-            end6.isHidden = true
-            name7.isHidden = true
-            start7.isHidden = true
-            end7.isHidden = true
-            name8.isHidden = true
-            start8.isHidden = true
-            end8.isHidden = true
-        } else if numPlayers == "5" {
-            name6.isHidden = true
-            start6.isHidden = true
-            end6.isHidden = true
-            name7.isHidden = true
-            start7.isHidden = true
-            end7.isHidden = true
-            name8.isHidden = true
-            start8.isHidden = true
-            end8.isHidden = true
-        } else if numPlayers == "6" {
-            name7.isHidden = true
-            start7.isHidden = true
-            end7.isHidden = true
-            name8.isHidden = true
-            start8.isHidden = true
-            end8.isHidden = true
-        } else if numPlayers == "7" {
-            name8.isHidden = true
-            start8.isHidden = true
-            end8.isHidden = true
-        } else {
-            
-        }
- 
+    var theResults = "..."
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return myArray.count
     }
+    
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cellIdentifier = "cell"
+        let cell = self.tableView1.dequeueReusableCell(withIdentifier: cellIdentifier, for : indexPath) as UITableViewCell
+        
+        //Configure the cell...
+        //cell.textLabel?.text = departmentNames[indexPath.row]
+        //cell.textLabel?.text = theResults
+        
+        cell.textLabel?.numberOfLines = 0
+        cell.textLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping
+        cell.textLabel?.text = myArray[indexPath.row]
+        return cell
+    }
+    
+    
+    
+    
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -265,20 +172,3 @@ class ComputeViewController: UIViewController {
 
 
 
-
-extension UIViewController
-{
-    func hideKeyboard()
-    {
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(
-            target: self,
-            action: #selector(UIViewController.dismissKeyboard))
-        
-        view.addGestureRecognizer(tap)
-    }
-    
-    func dismissKeyboard()
-    {
-        view.endEditing(true)
-    }
-}
